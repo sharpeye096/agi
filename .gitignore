@@ -1,0 +1,22 @@
+# LaTeX intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+*.pdf
+
+# Keep the output directory structure but ignore content? 
+# The user asked to ignore the output directory "输出目录", so:
+output/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS generated
+.DS_Store
+Thumbs.db
