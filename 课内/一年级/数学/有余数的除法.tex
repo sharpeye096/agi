@@ -1,0 +1,203 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBLE ---
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{array} % For better table alignment
+
+% Set main language to Chinese
+\usepackage[chinese, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{chinese}
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Fonts
+\babelfont{rm}{Noto Serif}
+\babelfont[chinese]{rm}{Noto Serif CJK SC}
+
+% Custom section formatting
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{purple!70!black}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Packages for lists
+\usepackage{enumitem}
+\setlist[itemize]{label=$\bullet$}
+
+\title{\textbf{数学王国奇遇记：有余数的除法}}
+\author{小学数学趣味讲义}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+亲爱的小朋友，欢迎来到数学王国的“浆果乐园”！今天我们要解决一个关于\textbf{分享}的问题。当你想要平均分东西，却发现\textbf{分不完}的时候，该怎么办呢？
+
+秘密就藏在今天的课里——\textbf{有余数的除法}。
+
+\hrule
+\vspace{0.5cm}
+
+\section{第一部分：分草莓的故事（理解意义）}
+
+\subsection*{1. 遇到的问题}
+熊大摘了 \textbf{14} 颗又大又红的草莓，他想把这些草莓\textbf{平均分}给 \textbf{4} 个好朋友。
+请问：\textbf{每个朋友能分到几颗？还剩几颗？}
+
+\begin{tcolorbox}[colback=pink!10!white, colframe=purple!75!black, title=动动手想一想]
+    我们可以用圆圈代表草莓，画一画：
+    
+    \vspace{0.2cm}
+    $\bigcirc \bigcirc \bigcirc \bigcirc$ （分给第1个朋友）\\
+    $\bigcirc \bigcirc \bigcirc \bigcirc$ （分给第2个朋友）\\
+    $\bigcirc \bigcirc \bigcirc \bigcirc$ （分给第3个朋友）\\
+    $\bigcirc \bigcirc$ （哎呀，只剩2个了，不够分给第4个朋友了！）
+\end{tcolorbox}
+
+\subsection*{2. 用数学语言说话}
+这个过程，我们可以用一个除法算式来表示：
+
+\[ 14 \div 4 = 3 \cdots\cdots 2 \]
+
+\begin{itemize}
+    \item \textbf{14} 是\textbf{被除数}（一共有14颗草莓）。
+    \item \textbf{4} 是\textbf{除数}（平均分给4个人）。
+    \item \textbf{3} 是\textbf{商}（每人分到3颗）。
+    \item \textbf{2} 是\textbf{余数}（最后剩下2颗，没法分了）。
+    \item $\cdots\cdots$ 是\textbf{省略号}，读作“余”。
+\end{itemize}
+
+\textbf{读法}：14除以4等于3余2。
+
+\newpage
+
+\section{第二部分：竖式计算四步走（掌握方法）}
+
+怎样用竖式（像盖房子一样）把这个算式算出来呢？请记住这句口诀：
+\textbf{“一商、二乘、三减、四比”}。
+
+\vspace{0.5cm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{r@{\quad}l}
+    \textbf{步骤图解} & \textbf{意思解释} \\
+    \hline
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & 3 \\[-3pt] % 商
+      \cline{2-2}
+      4 \big) & 14 \\
+    \end{tabular} 
+    & 
+    \parbox{8cm}{\textbf{1. 一商}：\\ 想口诀“四（三）十二”，最接近14且比14小。\\ 商是3，写在个位上面。} \\[1.5cm]
+    
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & 3 \\[-3pt]
+      \cline{2-2}
+      4 \big) & 14 \\
+         & 12 \\[-3pt]
+    \end{tabular} 
+    & 
+    \parbox{8cm}{\textbf{2. 二乘}：\\ 用除数4去乘商3。\\ $4 \times 3 = 12$。\\ 把12写在被除数14的下面。意思是\textbf{分掉了12个}。} \\[1.5cm]
+    
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & 3 \\[-3pt]
+      \cline{2-2}
+      4 \big) & 14 \\
+         & 12 \\[-3pt]
+      \cline{2-2}
+         &  2
+    \end{tabular} 
+    & 
+    \parbox{8cm}{\textbf{3. 三减}：\\ 用被除数减去分掉的数。\\ $14 - 12 = 2$。\\ 2就是\textbf{余数}（剩下的）。} \\[1.5cm]
+\end{tabular}
+\end{center}
+
+\begin{tcolorbox}[colback=yellow!10!white, colframe=orange!80!black, title=\textbf{4. 四比（最重要的一步！）}]
+    最后，一定要看一眼余数！
+    
+    \textbf{余数必须比除数小！} ($2 < 4$)
+    
+    \textit{如果余数比除数大，说明刚才商太小了，还能再分！}
+\end{tcolorbox}
+
+\newpage
+
+\section{第三部分：小试牛刀（练习时间）}
+
+\textbf{1. 圈一圈，填一填。}
+\vspace{0.5cm}
+
+有 11 个苹果 $\bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc \bigcirc$
+\\
+每 3 个装一盘，可以装（ \hspace{1cm} ）盘，还剩（ \hspace{1cm} ）个。
+
+\[ 11 \div 3 = \underline{\hspace{1cm}} \cdots\cdots \underline{\hspace{1cm}} \]
+
+\vspace{0.5cm}
+\textbf{2. 用竖式计算下面各题。}
+\vspace{0.5cm}
+
+\begin{tabular}{p{4cm} p{4cm} p{4cm}}
+    (1) $20 \div 6 =$ & (2) $34 \div 5 =$ & (3) $45 \div 7 =$ \\
+    & & \\
+    & & \\
+    \hspace{0.5cm}
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+      6 \big) & 20 \\
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+         & \phantom{0}
+    \end{tabular}
+    &
+    \hspace{0.5cm}
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+      5 \big) & 34 \\
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+         & \phantom{0}
+    \end{tabular}
+    &
+    \hspace{0.5cm}
+    \begin{tabular}{r@{\hspace{2pt}}l}
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+      7 \big) & 45 \\
+         & \phantom{0} \\[-3pt]
+      \cline{2-2}
+         & \phantom{0}
+    \end{tabular}
+    \\[2cm] % Add extra space for calculation
+\end{tabular}
+
+\section{第四部分：思维挑战（生活中的余数）}
+
+\begin{enumerate}
+    \item \textbf{坐船问题}：\\
+    有 26 个小朋友去划船，每条船最多坐 4 人。至少要租几条船？
+    \vspace{0.5cm}
+    
+    算式：\underline{\hspace{5cm}}
+    
+    \textit{想一想：剩下的 2 个小朋友也要坐船吗？答案是 \underline{\hspace{2cm}} 条。}
+    \vspace{1cm}
+
+    \item \textbf{排队问题}：\\
+    同学们按“红、黄、蓝”的顺序挂气球。第 16 个气球是什么颜色？
+    \vspace{0.5cm}
+    
+    算式：\underline{\hspace{5cm}}
+    
+    \textit{想一想：看余数是几，就是第几个颜色。}
+\end{enumerate}
+
+\end{document}

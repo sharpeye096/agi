@@ -1,0 +1,206 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBLE ---
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amssymb} % Added for \checkmark
+\usepackage{graphicx}
+\usepackage{tcolorbox} % For highlighted boxes
+
+% Set main language to Chinese
+\usepackage[chinese, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{chinese}
+\babelprovide[import, onchar=ids fonts]{english}
+
+% Fonts - Using Noto Serif for a book-like feel
+\babelfont{rm}{Noto Serif}
+\babelfont[chinese]{rm}{Noto Serif CJK SC}
+
+% Custom section formatting
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{}{0em}{}
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Packages for lists
+\usepackage{enumitem}
+\setlist[itemize]{label=$\bullet$}
+
+% Command for Short Division display
+\newcommand{\shortdiv}[5]{
+    \begin{tabular}{r|ll}
+    #1 & #2 & #3 \\ \cline{2-3}
+    #4 & #5 & 
+    \end{tabular}
+}
+
+\title{\textbf{数字小侦探：寻找最大公约数和最小公倍数}}
+\author{小学数学趣味讲义}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+亲爱的小朋友，欢迎来到数字侦探社！今天我们要去破解两个神秘的数字密码，它们的名字有点长，一个叫\textbf{最大公约数}，一个叫\textbf{最小公倍数}。
+
+别被名字吓跑了，其实它们非常好玩！
+
+\hrule
+\vspace{0.5cm}
+
+\section{第一关：最大公约数（GCD）—— 切蛋糕大师}
+
+\subsection*{1. 什么是“约数”（因数）？}
+想象一下，你有一个数字 \textbf{12}。如果我们把它看作一块 \textbf{12厘米长的蛋糕}，我们要把它切成整数厘米的小块，而且不能有剩余。我们可以切成多长？
+
+\begin{itemize}
+    \item 1厘米（12块） \checkmark
+    \item 2厘米（6块） \checkmark
+    \item 3厘米（4块） \checkmark
+    \item 4厘米（3块） \checkmark
+    \item 6厘米（2块） \checkmark
+    \item 12厘米（1块） \checkmark
+    \item 5厘米？不行，切完还剩一点点渣渣。 $\times$
+\end{itemize}
+
+这些能刚好把 12 分完的数字（1, 2, 3, 4, 6, 12），就是 \textbf{12 的约数}。
+
+\subsection*{2. 什么是“最大公约数”？}
+现在，我们的桌子上放着两块蛋糕：
+\begin{itemize}
+    \item 一块长 \textbf{12} 厘米
+    \item 一块长 \textbf{18} 厘米
+\end{itemize}
+
+\textbf{任务}：要把它们切成\textbf{同样长}的小段，而且每段要\textbf{尽可能长}，不能有浪费。
+
+\begin{itemize}
+    \item \textbf{12 的约数}：1, 2, 3, 4, \textbf{6}, 12
+    \item \textbf{18 的约数}：1, 2, 3, \textbf{6}, 9, 18
+\end{itemize}
+
+\textbf{发现了吗？} 它们都有 1, 2, 3, 6。这些叫\textbf{公约数}。其中\textbf{最大}的一个是 \textbf{6}。
+
+\begin{tcolorbox}[colback=yellow!10!white, colframe=orange!75!black, title=结论]
+\textbf{最大公约数}就是能同时整除两个数，且最大的那个数。
+\end{tcolorbox}
+
+\newpage
+
+\section{第二关：最小公倍数（LCM）—— 跳格子比赛}
+
+\subsection*{1. 什么是“倍数”？}
+这就简单啦！就像背乘法口诀。
+\begin{itemize}
+    \item \textbf{3 的倍数}：3, 6, 9, 12, 15... （像小青蛙每次跳 3 格）
+    \item \textbf{4 的倍数}：4, 8, 12, 16, 20... （像小兔子每次跳 4 格）
+\end{itemize}
+
+\subsection*{2. 什么是“最小公倍数”？}
+现在，小青蛙（跳3格）和小兔子（跳4格）在同一起跑线上开始跳。它们会在哪个格子上\textbf{第一次相遇}呢？
+
+\begin{itemize}
+    \item \textbf{3 的脚印}：3, 6, 9, \textbf{12}, 15, 18, 21, \textbf{24}...
+    \item \textbf{4 的脚印}：4, 8, \textbf{12}, 16, 20, \textbf{24}...
+\end{itemize}
+
+\textbf{发现了吗？} 它们在第 12 格、第 24 格都会相遇。这些叫\textbf{公倍数}。其中\textbf{最近（最小）}的一个是 \textbf{12}。
+
+\begin{tcolorbox}[colback=green!10!white, colframe=green!75!black, title=结论]
+\textbf{最小公倍数}就是能同时被两个数整除，且最小的那个数。
+\end{tcolorbox}
+
+\section{第三关：超级武器——短除法}
+
+每次都列举数字太麻烦啦！侦探们有一个万能公式，叫\textbf{“短除法”}。
+
+\textbf{例子：找出 12 和 18 的最大公约数和最小公倍数}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tabular}{r|ll}
+ \textbf{2} & 12 & 18 \\ \cline{2-3}
+ \textbf{3} & \phantom{1}6 & \phantom{1}9 \\ \cline{2-3}
+            & \phantom{1}2 & \phantom{1}3
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+\textbf{步骤解析：}
+\begin{enumerate}
+    \item 先用能同时整除它们的 \textbf{2} 去除，得到 6 和 9。
+    \item 再用能同时整除 6 和 9 的 \textbf{3} 去除，得到 2 和 3。
+    \item 2 和 3 互质（除了1没法再除了），结束！
+\end{enumerate}
+
+\begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title=\textbf{终极秘籍（背下来！）}]
+\textbf{1. 求最大公约数：只乘左边！} \\
+把左边的数字乘起来：$2 \times 3 = \mathbf{6}$ \\
+\textit{所以，12 和 18 的最大公约数是 6。}
+
+\vspace{0.2cm}
+\textbf{2. 求最小公倍数：左边下面一网打尽！} \\
+把左边的数字和下面的数字全部乘起来：$2 \times 3 \times 2 \times 3 = \mathbf{36}$ \\
+\textit{所以，12 和 18 的最小公倍数是 36。}
+\end{tcolorbox}
+
+\newpage
+
+\section{生活中的数学（为什么要学这个？）}
+
+\begin{enumerate}
+    \item \textbf{最大公约数帮你铺地砖}：
+    你有一个长方形的房间（比如长 12 米，宽 18 米），你想铺那种\textbf{正方形}的大地砖，又不想要切碎地砖，选多大边长的砖最合适？（答案是 6 米！）
+    
+    \item \textbf{最小公倍数帮你等公交}：
+    一路公交车每 10 分钟来一趟，二路公交车每 15 分钟来一趟。如果你错过了它们同时发车，下一次它们\textbf{同时到达}要等多久？（求 10 和 15 的最小公倍数，答案是 30 分钟！）
+\end{enumerate}
+
+\vspace{1cm}
+
+\section{小侦探练兵场}
+\textbf{请用“短除法”计算下面每组数的最大公约数和最小公倍数：}
+
+\vspace{0.5cm}
+
+\begin{enumerate}[itemsep=4em]
+    \item \textbf{8 和 12}
+    \begin{itemize}
+        \item 最大公约数：\underline{\hspace{3cm}}
+        \item 最小公倍数：\underline{\hspace{3cm}}
+    \end{itemize}
+
+    \item \textbf{10 和 20}
+    \begin{itemize}
+        \item 最大公约数：\underline{\hspace{3cm}}
+        \item 最小公倍数：\underline{\hspace{3cm}}
+    \end{itemize}
+
+    \item \textbf{15 和 25}
+    \begin{itemize}
+        \item 最大公约数：\underline{\hspace{3cm}}
+        \item 最小公倍数：\underline{\hspace{3cm}}
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+
+\section{终极挑战：我是解题小能手}
+\textbf{这里有两道生活中的难题，请你根据学到的知识，判断是求“最大公约数”还是“最小公倍数”，并算出答案。}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+    \item \textbf{剪彩带（不能浪费哦！）} \\
+    老师有两根彩带，红色的长 \textbf{24} 厘米，蓝色的长 \textbf{36} 厘米。老师想把它们剪成\textbf{同样长}的小段，而且不能有剩余。每段彩带\textbf{最长}可以是几厘米？
+    \vspace{4cm}
+
+    \item \textbf{猜猜有多少糖果？} \\
+    桌子上有一袋糖果，如果平均分给 \textbf{6} 个小朋友，正好分完；如果平均分给 \textbf{8} 个小朋友，也正好分完。这袋糖果\textbf{至少}有多少颗？
+    \vspace{4cm}
+\end{enumerate}
+
+\end{document}
